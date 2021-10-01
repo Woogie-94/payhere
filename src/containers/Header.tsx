@@ -21,7 +21,7 @@ const HeaderContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 80px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid #d6d6d8;
 `;
 
 const HeaderLogo = styled.h1`
