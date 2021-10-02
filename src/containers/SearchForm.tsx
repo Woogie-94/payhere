@@ -3,14 +3,15 @@ import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import Input from "../components/Input";
 import useInput from "../hooks/useInput";
-import { getRepos } from "../reducer/repos";
+import { getRepos, resetRepos } from "../reducer/repos";
 
 const SearchForm = (): JSX.Element => {
   const [searchValue, onSerachValue] = useInput<string>("");
   const dispatch = useDispatch();
 
   const repo = useCallback(async (): Promise<void> => {
-    dispatch(getRepos({ searchValue }));
+    dispatch(resetRepos());
+    dispatch(getRepos({ searchValue, page: 1 }));
   }, [searchValue, dispatch]);
 
   useEffect(() => {}, [searchValue]);
