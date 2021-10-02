@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import RepoCard from "../components/RepoCard";
@@ -96,4 +96,4 @@ const FailedMessage = styled.div`
   color: #aaa;
 `;
 
-export default memo(SearchList);
+export default SearchList;
