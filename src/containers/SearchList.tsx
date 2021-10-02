@@ -24,7 +24,7 @@ const SearchList = (): JSX.Element => {
       if (clientHeight + scrollTop >= scrollHeight) {
         // search api가 1000개까지만 검색을 허용해 임의로 제한을 둡니다 ㅠㅠ
         // search api에 속도 제한이 있어 인증되지 않은 요청일 경우 분당 10번으로 제한되어 여러번 요청하면 에러 발생...
-        setPage((page) => (page < 90 ? page + 10 : page));
+        setPage((page) => (page < 10 ? page + 1 : page));
       }
     }, 200);
   }, [throttle]);
