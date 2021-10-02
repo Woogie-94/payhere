@@ -8,7 +8,7 @@ import { getRepos, resetRepos } from "../reducer/repos";
 const SearchForm = (): JSX.Element => {
   const [searchValue, onSerachValue] = useInput<string>("");
   const dispatch = useDispatch();
-  console.log("form");
+
   const repo = useCallback(async (): Promise<void> => {
     dispatch(resetRepos());
     dispatch(getRepos({ searchValue, page: 1 }));
