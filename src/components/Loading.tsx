@@ -11,7 +11,7 @@ const Loading = (): JSX.Element => {
 };
 
 const LoadingContainer = styled.div`
-  position: absolute;
+  position: sticky;
   z-index: 10;
   top: 0;
   left: 0;
