@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 interface InputStyleTypes {
@@ -7,8 +7,9 @@ interface InputStyleTypes {
 
 interface InputProps {
   styleType: string;
-  // value: string;
-  // onChange: () => void;
+  placeholder: string;
+  value: string;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const STYLE_TYPES: InputStyleTypes = {
@@ -22,8 +23,8 @@ const STYLE_TYPES: InputStyleTypes = {
 };
 
 // use for container SearchForm
-const Input = ({ styleType }: InputProps): JSX.Element => {
-  return <StyledInput inputType={STYLE_TYPES[styleType]} placeholder="검색하실 제목을 입력하세요." />;
+const Input = ({ styleType, ...valus }: InputProps): JSX.Element => {
+  return <StyledInput inputType={STYLE_TYPES[styleType]} {...valus} />;
 };
 
 const StyledInput = styled.input<{ inputType: FlattenSimpleInterpolation }>`
