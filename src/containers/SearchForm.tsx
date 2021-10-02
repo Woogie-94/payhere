@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { memo, useCallback, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import Input from "../components/Input";
@@ -8,7 +8,7 @@ import { getRepos, resetRepos } from "../reducer/repos";
 const SearchForm = (): JSX.Element => {
   const [searchValue, onSerachValue] = useInput<string>("");
   const dispatch = useDispatch();
-
+  console.log("form");
   const repo = useCallback(async (): Promise<void> => {
     dispatch(resetRepos());
     dispatch(getRepos({ searchValue, page: 1 }));
@@ -41,4 +41,4 @@ const SearchBtn = styled.button`
   }
 `;
 
-export default SearchForm;
+export default memo(SearchForm);

@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, memo } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 interface InputStyleTypes {
@@ -31,4 +31,4 @@ const StyledInput = styled.input<{ inputType: FlattenSimpleInterpolation }>`
   ${(p) => p.inputType}
 `;
 
-export default Input;
+export default memo(Input);

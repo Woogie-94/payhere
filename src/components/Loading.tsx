@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import styled from "styled-components";
 import ReactLoading from "react-loading";
 
@@ -23,4 +23,4 @@ const LoadingContainer = styled.div`
   background-color: rgba(255, 255, 255, 0.5);
 `;
 
-export default Loading;
+export default memo(Loading);

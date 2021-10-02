@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import styled from "styled-components";
 import { BsStar } from "react-icons/bs";
 import { VscRepoForked } from "react-icons/vsc";
@@ -75,4 +75,4 @@ const CardEtcItem = styled.span`
   }
 `;
 
-export default RepoCard;
+export default memo(RepoCard);
