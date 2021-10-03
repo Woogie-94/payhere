@@ -22,7 +22,7 @@ const RepoCard = ({ id, full_name, description, stargazers_count, forks_count, l
   }, [favoriteRepos, id]);
 
   const onAddRepo = useCallback(() => {
-    if (favoriteRepos.length >= 4) return;
+    if (favoriteRepos.length >= 4) return alert("최대 4개까지 등록 가능합니다.");
     if (isDuplicate()) return;
 
     dispatch(addRepo({ id, full_name, description, stargazers_count, forks_count, language, html_url }));
