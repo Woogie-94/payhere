@@ -91,9 +91,14 @@ const CardTitle = styled.a`
   overflow: hidden;
   width: 90%;
   padding-bottom: 3px;
-  text-overflow: ellipsis;
-  text-decoration: underline;
   font-size: 20px;
+  font-weight: bold;
+  color: rgb(9 105 218);
+  text-overflow: ellipsis;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 const CardDesc = styled.p`
