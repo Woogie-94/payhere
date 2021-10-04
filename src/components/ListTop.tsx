@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -19,6 +19,7 @@ const ListTopContainer = styled.div`
 
 const Title = styled.h2`
   font-size: 24px;
+  color: #333;
   font-weight: bold;
   margin-bottom: 20px;
 `;
@@ -37,4 +38,4 @@ const CustomLink = styled(Link)`
   }
 `;
 
-export default ListTop;
+export default memo(ListTop);
