@@ -7,7 +7,7 @@ import Issues from "./page/Issues";
 
 function App() {
   // 토큰 자꾸 사라짐!!!!!
-  // axios.defaults.headers.common["Authorization"] = `token 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`;
+  // axios.defaults.headers.common["Authorization"] = `token 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`;
 
   return (
     <>
