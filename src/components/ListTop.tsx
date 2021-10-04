@@ -15,13 +15,13 @@ const ListTop = ({ title, url, btnTitle }: { [index: string]: string }): JSX.Ele
 const ListTopContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `;
 
 const Title = styled.h2`
   font-size: 24px;
   color: #333;
   font-weight: bold;
-  margin-bottom: 20px;
 `;
 
 const CustomLink = styled(Link)`
