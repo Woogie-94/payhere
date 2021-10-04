@@ -6,8 +6,8 @@ import Favorite from "./page/Favorite";
 import Issues from "./page/Issues";
 
 function App() {
-  // 토큰 자꾸 사라짐!!!!!
-  // axios.defaults.headers.common["Authorization"] = `token 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`;
+  // API 시간당 요청을 늘리기 원한다면 "토큰 자리"를 지우시고 Token을 넣어주신 다음 주석을 해제하세요!
+  // axios.defaults.headers.common["Authorization"] = `token 토큰 자리`;
 
   return (
     <>
