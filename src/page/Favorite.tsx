@@ -15,6 +15,7 @@ const Favorite = (): JSX.Element => {
 const PositionStandard = styled.div`
   overflow: hidden;
   position: relative;
+  height: calc(100vh - 80px);
 `;
 
 export default Favorite;
