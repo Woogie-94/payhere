@@ -1,14 +1,20 @@
+import axios from "axios";
 import React from "react";
-import { Switch } from "react-router-dom";
+import { Route, Switch } from "react-router";
 import Header from "./containers/Header";
-import SearchSideBar from "./containers/SearchSideBar";
+import Favorite from "./page/Favorite";
+import Issues from "./page/Issues";
 
 function App() {
+  axios.defaults.headers.common["Authorization"] = `token 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`;
+
   return (
     <>
       <Header />
-      <SearchSideBar />
-      <Switch></Switch>
+      <Switch>
+        <Route exact path="/" component={Favorite} />
+        <Route exact path="/issues" component={Issues} />
+      </Switch>
     </>
   );
 }
