@@ -31,7 +31,7 @@ export interface Issue {
   title: string;
   comments: number;
   html_url: string;
-  labels: { name: string; color: string };
+  labels: { id: number; name: string; color: string }[];
   user: { login: string; avatar_url: string };
 }
 
@@ -39,4 +39,5 @@ export interface IssueReducerState {
   state: REQUEST_STATE;
   error: string;
   issues: Issue[];
+  pageNumber: number;
 }
