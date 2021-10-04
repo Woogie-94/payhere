@@ -2,6 +2,7 @@ import React, { memo } from "react";
 import styled from "styled-components";
 import ReactLoading from "react-loading";
 
+// use for container SearchList and IssueList
 const Loading = (): JSX.Element => {
   return (
     <LoadingContainer>
