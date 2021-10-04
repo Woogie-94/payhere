@@ -18,6 +18,7 @@ const SearchSideBar = (): JSX.Element => {
   return (
     <BarContainer open={open}>
       <OpenAndClose onClick={onOpenAndClose}>{open ? <HiChevronDoubleRight /> : <HiChevronDoubleLeft />}</OpenAndClose>
+      <Title>검색</Title>
       <SearchForm />
       <TotalCount>검색 결과: {state === REQUEST_STATE.SUCCESS ? total_count : "-"}</TotalCount>
       <SearchList />
@@ -30,12 +31,21 @@ const BarContainer = styled.div<{ open: boolean }>`
   top: 0;
   right: ${({ open }) => (open ? "0" : "-450px")};
   width: 450px;
-  height: calc(100vh - 80px);
+  height: 100%;
   padding: 50px 30px;
   background-color: #fff;
   border-left: 1px solid #d6d6d8;
 
   transition: 0.2s;
+`;
+
+const Title = styled.h2`
+  height: 40px;
+  line-height: 40px;
+  font-size: 24px;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 20px;
 `;
 
 const TotalCount = styled.div`
