@@ -64,12 +64,17 @@ const RepoCard = ({ id, full_name, description, stargazers_count, forks_count, l
 
 const CardContainer = styled.div`
   position: relative;
+  flex: 1 1 100%;
   width: 389px;
   height: 130px;
   margin-bottom: 20px;
   padding: 15px;
   border: 1px solid #ddd;
   border-radius: 4px;
+
+  &:hover {
+    background-color: #f6f6f8;
+  }
 `;
 
 const CardTop = styled.div`
@@ -89,7 +94,7 @@ const CardTop = styled.div`
 
 const CardTitle = styled.a`
   overflow: hidden;
-  width: 90%;
+  max-width: 90%;
   padding-bottom: 3px;
   font-size: 20px;
   font-weight: bold;
