@@ -29,6 +29,7 @@ const initialState: IssueReducerState = {
   state: REQUEST_STATE.INIT,
   error: "",
   issues: [],
+  pageNumber: 0,
 };
 
 export const issuesSlice = createSlice({
@@ -38,17 +39,18 @@ export const issuesSlice = createSlice({
     resetIssues: (state) => {
       state.issues = [];
     },
+    paging: (state, action) => {
+      state.pageNumber = action.payload;
+    },
   },
   extraReducers: (bulider: ActionReducerMapBuilder<IssueReducerState>) => {
     bulider
       .addCase(getIssues.pending, (state, action) => {
         state.state = REQUEST_STATE.PENDING;
-        console.log(action);
       })
       .addCase(getIssues.fulfilled, (state, action) => {
         state.state = REQUEST_STATE.SUCCESS;
         state.issues = action.payload;
-        console.log(action);
       })
       .addCase(getIssues.rejected, (state, action) => {
         state.state = REQUEST_STATE.FAILED;
@@ -57,5 +59,5 @@ export const issuesSlice = createSlice({
   },
 });
 
-export const { resetIssues } = issuesSlice.actions;
+export const { resetIssues, paging } = issuesSlice.actions;
 export const issuesSelector = (state: RootStateOrAny) => state.issuesSlice;
