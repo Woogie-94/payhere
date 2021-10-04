@@ -6,7 +6,8 @@ import Favorite from "./page/Favorite";
 import Issues from "./page/Issues";
 
 function App() {
-  axios.defaults.headers.common["Authorization"] = `token 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`;
+  // 토큰 자꾸 사라짐!!!!!
+  // axios.defaults.headers.common["Authorization"] = `token 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`;
 
   return (
     <>
