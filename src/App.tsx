@@ -6,7 +6,7 @@ import Favorite from "./page/Favorite";
 import Issues from "./page/Issues";
 
 function App() {
-  axios.defaults.headers.common["Authorization"] = `token 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`;
+  axios.defaults.headers.common["Authorization"] = `token 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`;
 
   return (
     <>
