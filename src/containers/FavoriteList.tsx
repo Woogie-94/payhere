@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import EmptyResultInfo from "../components/EmptyResultInfo";
 import ListTop from "../components/ListTop";
 import RepoCard from "../components/RepoCard";
 import { favoriteSelector, getState } from "../reducer/favorite";
@@ -16,9 +17,9 @@ const FavoriteList = (): JSX.Element => {
 
   return (
     <FavoriteContainer>
-      <ListTop title="Favorite Repository" btnTitle="이슈 보러가기" url={"/issues"} />
+      <ListTop title="관심 레포지토리" btnTitle="이슈 보러가기" url={"/issues"} />
       <ListContainer>
-        {!favoriteRepos.length && <EmptyRepo>등록된 레포지토리가 없습니다.</EmptyRepo>}
+        {!favoriteRepos.length && <EmptyResultInfo body="등록된 레포지토리가 없습니다.." />}
         {favoriteRepos.map((repo: Repo) => (
           <RepoCard key={repo.id} {...repo} />
         ))}
@@ -35,21 +36,11 @@ const FavoriteContainer = styled.div`
 
 const ListContainer = styled.div`
   display: flex;
+  align-content: start;
   flex-wrap: wrap;
   width: 100%;
-  height: 300px;
+  height: 600px;
   margin-top: 20px;
-`;
-
-const EmptyRepo = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 300px;
-  font-size: 24px;
-  font-weight: bold;
-  color: #c6c6c8;
 `;
 
 export default FavoriteList;
