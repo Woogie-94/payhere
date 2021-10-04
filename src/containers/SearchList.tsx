@@ -12,7 +12,7 @@ const SearchList = (): JSX.Element => {
   const scrollTarget = useRef<HTMLDivElement | null>(null);
   const throttle = useThrottle();
 
-  const { state, repos, empty, searchValue }: RepoReducerState = useSelector(ReposSelector);
+  const { state, repos, empty, searchValue, total_count }: RepoReducerState = useSelector(ReposSelector);
   const dispatch = useDispatch();
 
   const infiniteScroll = useCallback((): void => {
@@ -24,10 +24,12 @@ const SearchList = (): JSX.Element => {
       if (clientHeight + scrollTop >= scrollHeight) {
         // search api가 1000개까지만 검색을 허용해 임의로 제한을 둡니다 ㅠㅠ
         // search api에 속도 제한이 있어 인증되지 않은 요청일 경우 분당 10번으로 제한되어 여러번 요청하면 에러 발생...
-        setPage((page) => (page < 10 ? page + 1 : page));
+        // 최대한 에러 안나게 Authorization 추가해 30번까지 가능
+        const maxPage = Math.ceil(total_count / 10) + 1;
+        setPage((page) => (page < maxPage ? (page < 10 ? page + 1 : page) : page));
       }
     }, 200);
-  }, [throttle]);
+  }, [throttle, total_count]);
 
   useEffect(() => {
     if (!searchValue) return;
@@ -35,7 +37,7 @@ const SearchList = (): JSX.Element => {
     if (page > 1) {
       dispatch(getRepos({ searchValue, page }));
     }
-  }, [page]);
+  }, [dispatch, searchValue, page]);
 
   useEffect(() => {
     setPage(1);
@@ -51,7 +53,8 @@ const SearchList = (): JSX.Element => {
     scrollTarget.current.addEventListener("scroll", infiniteScroll);
 
     return () => {
-      scrollTarget!.current!.removeEventListener("scroll", infiniteScroll);
+      if (!scrollTarget.current) return;
+      scrollTarget.current.removeEventListener("scroll", infiniteScroll);
     };
   }, [infiniteScroll]);
 
